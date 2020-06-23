@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  margin: 30px auto;
+  width: 350px;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0;
+  color: #2e75cc;
+}
+
+h3 {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.inc-exp-container {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #dedede;
+}
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: #2ecc71;
+}
+
+.money.minus {
+  color: #c0392b;
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+input[type='text'],
+input[type='number'] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #26a75c;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.transactions {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.transactions li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.transactions li.plus {
+  border-right: 5px solid #2ecc71;
+}
+
+.transactions li.minus {
+  border-right: 5px solid #c0392b;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.transactions li:hover .delete-btn {
+  opacity: 1;
+}
+
+#year {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+}
+
+#year .fa-angle-left, #year .fa-angle-right {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 45px;
+  background-color: #74aef5;
+  transition: 200ms ease-in;
+}
+
+#year .fa-angle-left {
+  position: absolute;
+  left: 0;
+}
+
+#year .fa-angle-right {
+  position: absolute;
+  right: 0;
+}
+
+#year .fa-angle-left:hover, #year .fa-angle-right:hover {
+  background-color: #2e75cc;
+  color: #fff;
+}
+
+.select-year {
+  font-size: 30px;
+  user-select: none;
+}
+
+#month {
+  display: grid;
+  grid-template-columns: repeat(5, 70px);
+}
+
+.months {
+  cursor: pointer;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12);
+  transition: 200ms ease-in;
+}
+
+.months:hover {
+  background-color: #74aef5;
+}
+
+.selected {
+  background-color: #2e75cc;
+  color: #fff;
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    width: 85%;
+  }
+  .delete-btn {
+    opacity: 1;
+  }
+  #month {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .months {
+    padding: 15px;
+  }
+}
+@media screen and (max-width: 321px) {
+  #month {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .months {
+    padding: 10px;
+  }
+}
